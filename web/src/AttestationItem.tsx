@@ -164,7 +164,7 @@ export function AttestationItem({ data }: Props) {
               } catch (e) {}
             }}
           >
-            {confirming ? "Confirming..." : "Confirm we met"}
+            {confirming ? "Confirming..." : "Confirm we partner"}
           </ConfirmButton>
         ) : (
           <VerifyIconContainer>
