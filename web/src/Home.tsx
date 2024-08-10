@@ -141,6 +141,9 @@ function Home() {
   const { status } = useAccount();
   const modal = useModal();
   const [address, setAddress] = useState("");
+  const [PartnerName, setPartnerName] = useState("");
+  const [CompanyName, setCompanyName] = useState("");
+  const [Description, setDescription] = useState("");
   const signer = useSigner();
   const [attesting, setAttesting] = useState(false);
   const [ensResolvedAddress, setEnsResolvedAddress] = useState("Dakh.eth");
@@ -186,7 +189,7 @@ function Home() {
             autoCapitalize={"off"}
             placeholder={"Partner Name"}
             value={PartnerName}
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={(e) => setPartnerName(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
@@ -199,8 +202,8 @@ function Home() {
             autoComplete={"off"}
             autoCapitalize={"off"}
             placeholder={"Partner Company"}
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={CompanyName}
+            onChange={(e) => setCompanyName(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
@@ -213,8 +216,8 @@ function Home() {
             autoComplete={"off"}
             autoCapitalize={"off"}
             placeholder={"Describe the partnership"}
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={Description}
+            onChange={(e) => setDescription(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainerLong>
