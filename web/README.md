@@ -24,7 +24,7 @@ Ensure that you have Node.js and npm installed before proceeding.
    ```
 2. Install dependencies:
    ```bash
-   cd build-trust
+   cd build-trust/web
    npm i
    ```
 3. Set up your .env file with your Alchemy API key (for resolving ENS names).
