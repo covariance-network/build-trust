@@ -165,6 +165,20 @@ function Home() {
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
+        <Title>
+          We created new <b>Value</b> because this collaobration:
+        </Title>
+        <InputContainer>
+          <InputBlock
+            autoCorrect={"off"}
+            autoComplete={"off"}
+            autoCapitalize={"off"}
+            placeholder={"Describe the partnership"}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
+        </InputContainer>
         <MetButton
           onClick={async () => {
             if (status !== "connected") {
