@@ -16,7 +16,7 @@ Check out [build-trust.covariance.network](https://build-trust.covariance.networ
 
 To run the RPS project locally:
 
-Ensure that you have Node.js and npm installed before proceeding.
+Ensure that you have Node.js and yarn installed before proceeding.
 
 1. Clone the frontend repo:
    ```bash
@@ -25,12 +25,12 @@ Ensure that you have Node.js and npm installed before proceeding.
 2. Install dependencies:
    ```bash
    cd build-trust/web
-   npm i
+   yarn
    ```
 3. Set up your .env file with your Alchemy API key (for resolving ENS names).
 
 4. Start the Development Server
    ```bash
-   npm run start
+   yarn start
    ```
 After completing these steps, the Build-Trust display will be shown on port 3000.
