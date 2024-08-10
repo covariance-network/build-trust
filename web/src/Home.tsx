@@ -217,7 +217,7 @@ function Home() {
             onChange={(e) => setAddress(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
-        </InputContainer>
+        </InputContainerLong>
         <MetButton
           onClick={async () => {
             if (status !== "connected") {
