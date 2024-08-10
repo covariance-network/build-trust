@@ -154,6 +154,17 @@ function Home() {
         <Title>
           We <b>Created a partnership</b> between
         </Title>
+        <InputContainer>
+          <InputBlock
+            autoCorrect={"off"}
+            autoComplete={"off"}
+            autoCapitalize={"off"}
+            placeholder={"Partner Name"}
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+          />
+          {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
+        </InputContainer>
         <MetButton
           onClick={async () => {
             if (status !== "connected") {
