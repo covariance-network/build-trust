@@ -137,7 +137,7 @@ function Home() {
       <GradientBar />
       <WhiteBox>
         <Title>
-          I <b>attest</b> that I met
+          I <b>attest</b> that together with
         </Title>
 
         <InputContainer>
@@ -151,6 +151,9 @@ function Home() {
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
+        <Title>
+          We <b>Created a partnership</b> between
+        </Title>
         <MetButton
           onClick={async () => {
             if (status !== "connected") {
