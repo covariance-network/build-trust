@@ -1,6 +1,6 @@
 import { Header } from "./components/Header";
 import { Outlet } from "react-router";
-import * as chains from "wagmi/chains";
+import * as chains from "viem/chains";
 import { WagmiConfig, createConfig } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
 import "./App.css";
@@ -50,13 +50,13 @@ const allChains: ChainConfig[] = [
     chain: chains.polygon,
   },
   {
-    chainName: "optimism-goerli",
-    chain: chains.optimismGoerli,
+    chainName: "optimism-sepolia",
+    chain: chains.optimismSepolia,
   },
   {
-    chainName: "base-goerli",
+    chainName: "base-sepolia",
     // @ts-ignore
-    chain: chains.baseGoerli,
+    chain: chains.baseSepolia,
   },
 ];
 

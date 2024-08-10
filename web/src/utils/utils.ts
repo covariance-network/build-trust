@@ -33,6 +33,28 @@ invariant(CHAINID, "No chain ID env found");
 
 export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
   {
+    chainId: 84532,
+    chainName: "base-sepolia",
+    subdomain: "base-sepolia.",
+    version: "1.2.0",
+    contractAddress: "0x4200000000000000000000000000000000000021",
+    schemaRegistryAddress: "0x4200000000000000000000000000000000000020",
+    etherscanURL: "https://sepolia.basescan.org",
+    contractStartBlock: 0,
+    rpcProvider: `https://base-sepolia.g.alchemy.com/v2/`,
+  },
+  {
+    chainId: 11155420,
+    chainName: "optimism-sepolia",
+    subdomain: "optimism-sepolia.",
+    version: "1.2.0",
+    contractAddress: "0x4200000000000000000000000000000000000021",
+    schemaRegistryAddress: "0x4200000000000000000000000000000000000020",
+    etherscanURL: "https://optimism-sepolia.blockscout.com",
+    contractStartBlock: 0,
+    rpcProvider: `https://opt-sepolia.g.alchemy.com/v2/`,
+  },
+  {
     chainId: 11155111,
     chainName: "sepolia",
     subdomain: "sepolia.",
@@ -41,7 +63,7 @@ export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
     schemaRegistryAddress: "0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0",
     etherscanURL: "https://sepolia.etherscan.io",
     contractStartBlock: 2958570,
-    rpcProvider: `https://sepolia.infura.io/v3/`,
+    rpcProvider: `https://eth-sepolia.g.alchemy.com/v2/`,
   },
 ];
 
