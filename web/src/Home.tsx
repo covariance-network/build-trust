@@ -57,6 +57,11 @@ const InputContainer = styled.div`
   height: 90px;
 `;
 
+const InputContainerLong = styled.div`
+  position: relative;
+  height: 130px;
+`;
+
 const EnsLogo = styled.img`
   position: absolute;
   left: 14px;
@@ -65,6 +70,40 @@ const EnsLogo = styled.img`
 `;
 
 const InputBlock = styled.input`
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(19, 30, 38, 0.33);
+  background: rgba(255, 255, 255, 0.5);
+  color: #131e26;
+  font-size: 18px;
+  font-family: Chalkboard, sans-serif;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 12px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+const InputBlock2 = styled.input`
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 10px;
+  border: 1px solid rgba(19, 30, 38, 0.33);
+  background: rgba(255, 255, 255, 0.5);
+  color: #131e26;
+  font-size: 18px;
+  font-family: Chalkboard, sans-serif;
+  padding: 20px 10px;
+  text-align: center;
+  margin-top: 12px;
+  box-sizing: border-box;
+  width: 100%;
+`;
+
+const InputBlock3 = styled.input`
   position: absolute;
   top: 0;
   left: 0;
@@ -155,7 +194,7 @@ function Home() {
           We <b>Created a partnership</b> between
         </Title>
         <InputContainer>
-          <InputBlock
+          <InputBlock2
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
@@ -168,8 +207,8 @@ function Home() {
         <Title>
           We created new <b>Value</b> because this collaobration:
         </Title>
-        <InputContainer>
-          <InputBlock
+        <InputContainerLong>
+          <InputBlock3
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
