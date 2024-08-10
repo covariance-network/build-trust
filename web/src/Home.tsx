@@ -185,7 +185,7 @@ function Home() {
             autoComplete={"off"}
             autoCapitalize={"off"}
             placeholder={"Partner Name"}
-            value={address}
+            value={PartnerName}
             onChange={(e) => setAddress(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
