@@ -228,9 +228,9 @@ function Home() {
             } else {
               setAttesting(true);
               try {
-                const schemaEncoder = new SchemaEncoder("bool metIRL");
+                const schemaEncoder = new SchemaEncoder("bool isFriend");
                 const encoded = schemaEncoder.encodeData([
-                  { name: "metIRL", type: "bool", value: true },
+                  { name: "isFriend", type: "bool", value: true },
                 ]);
 
                 invariant(signer, "signer must be defined");
@@ -248,7 +248,7 @@ function Home() {
                     revocable: true,
                     expirationTime: BigInt(0),
                   },
-                  schema: CUSTOM_SCHEMAS.MET_IRL_SCHEMA,
+                  schema: CUSTOM_SCHEMAS.IS_A_FRIEND_SCHEMA,
                 });
 
                 const uid = await tx.wait();
