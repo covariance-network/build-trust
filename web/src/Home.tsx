@@ -142,7 +142,8 @@ function Home() {
   const modal = useModal();
   const [address, setAddress] = useState("");
   const [PartnerName, setPartnerName] = useState("");
-  const [CompanyName, setCompanyName] = useState("");
+  const [MyCompanyName, setMyCompanyName] = useState("");
+  const [PartnerCompanyName, setPartnerCompanyName] = useState("");
   const [Description, setDescription] = useState("");
   const signer = useSigner();
   const [attesting, setAttesting] = useState(false);
@@ -187,7 +188,7 @@ function Home() {
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
-            placeholder={"Partner ENS/Address"}
+            placeholder={"Your partner ENS/Address"}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -201,9 +202,23 @@ function Home() {
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
-            placeholder={"Partner Company"}
-            value={CompanyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            placeholder={"My Company"}
+            value={MyCompanyNameCompanyName}
+            onChange={(e) => setMyCompanyName(e.target.value)}
+          />
+          {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
+        </InputContainer>
+        <Title>
+          And
+        </Title>
+        <InputContainer>
+          <InputBlock2
+            autoCorrect={"off"}
+            autoComplete={"off"}
+            autoCapitalize={"off"}
+            placeholder={"My Partner Company"}
+            value={PartnerCompanyNameCompanyName}
+            onChange={(e) => setPartnerCompanyName(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
