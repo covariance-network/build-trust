@@ -243,9 +243,11 @@ function Home() {
             } else {
               setAttesting(true);
               try {
-                const schemaEncoder = new SchemaEncoder("bool IsPartner");
+
+                const schemaEncoder = new SchemaEncoder("bool IsPartner,string CompanyName");
                 const encoded = schemaEncoder.encodeData([
-                  { name: "IsPartner", type: "bool", value: true },
+                  { name: "IsPartner", value: true, type: "bool" },
+                  { name: "CompanyName", value: MyCompanyName, type: "string" }
                 ]);
 
                 invariant(signer, "signer must be defined");
