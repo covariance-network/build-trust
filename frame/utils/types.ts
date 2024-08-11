@@ -1,5 +1,5 @@
 export type EASChainConfig = {
-  chainId: 11155111
+  chainId: number;
   chainName: string
   version: string
   contractAddress: string

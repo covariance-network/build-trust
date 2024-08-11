@@ -7,8 +7,38 @@ import type {
   MyAttestationResult,
 } from './types'
 import { CUSTOM_SCHEMAS } from './constants'
+import invariant from 'tiny-invariant';
+
+function getChainId() {
+  return Number(process.env.CHAIN_ID);
+}
+
+export const CHAINID = getChainId();
+invariant(CHAINID, "No chain ID env found");
 
 export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
+  {
+    chainId: 84532,
+    chainName: "base-sepolia",
+    subdomain: "base-sepolia.",
+    version: "1.2.0",
+    contractAddress: "0x4200000000000000000000000000000000000021",
+    schemaRegistryAddress: "0x4200000000000000000000000000000000000020",
+    etherscanURL: "https://sepolia.basescan.org",
+    contractStartBlock: 0,
+    rpcProvider: `https://base-sepolia.g.alchemy.com/v2/`,
+  },
+  {
+    chainId: 11155420,
+    chainName: "optimism-sepolia",
+    subdomain: "optimism-sepolia.",
+    version: "1.2.0",
+    contractAddress: "0x4200000000000000000000000000000000000021",
+    schemaRegistryAddress: "0x4200000000000000000000000000000000000020",
+    etherscanURL: "https://optimism-sepolia.blockscout.com",
+    contractStartBlock: 0,
+    rpcProvider: `https://opt-sepolia.g.alchemy.com/v2/`,
+  },
   {
     chainId: 11155111,
     chainName: 'sepolia',
@@ -22,9 +52,11 @@ export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
   },
 ] as const
 
-export const activeChainConfig = EAS_CHAIN_CONFIGS[0]
+export const activeChainConfig = EAS_CHAIN_CONFIGS.find(
+  (config) => config.chainId === CHAINID
+);
 
-export const eas=new EAS(activeChainConfig.contractAddress)
+export const eas=new EAS(activeChainConfig!.contractAddress)
 
 
 async function request<T>(body: Record<string, unknown>): Promise<T> {
@@ -70,7 +102,7 @@ export async function getAttestationsForAddress(address: string) {
     variables: {
       where: {
         schemaId: {
-          equals: CUSTOM_SCHEMAS.MET_IRL_SCHEMA,
+          equals: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
         },
         OR: [
           {
