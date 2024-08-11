@@ -14,11 +14,11 @@ export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
     chainName: 'sepolia',
     subdomain: 'sepolia.',
     version: '0.26',
-    contractAddress: '0xC2679fBD37d54388Ce493F1DB75320D236e1815e',
-    schemaRegistryAddress: '0x0a7E2Ff54e76B8E6659aedc9103FB21c038050D0',
-    etherscanURL: 'https://sepolia.etherscan.io',
+    contractAddress: '0x4200000000000000000000000000000000000021',
+    schemaRegistryAddress: '0x4200000000000000000000000000000000000020',
+    etherscanURL: 'https://base-sepolia.etherscan.io',
     contractStartBlock: 2958570,
-    rpcProvider: 'https://sepolia.infura.io/v3/',
+    rpcProvider: 'https://base-sepolia.infura.io/v3/',
   },
 ] as const
 

@@ -2,21 +2,19 @@
 
 import easAbi from '@/contracts/easAbi'
 import { CUSTOM_SCHEMAS } from '@/utils/constants'
-import { activeChainConfig, getAttestation } from '@/utils/eas'
+import { activeChainConfig } from '@/utils/eas'
 import { getFcUser } from '@/utils/farcaster'
 import { Box, Heading, Spacer, Text, vars, VStack } from '@/utils/ui'
 import { getAddressForENS, publicClient } from '@/utils/viem'
 import { SchemaEncoder } from '@ethereum-attestation-service/eas-sdk'
 import { Button, type FrameIntent, Frog, TextInput } from 'frog'
 import { devtools } from 'frog/dev'
-// import { neynar } from 'frog/hubs'
 import { handle } from 'frog/next'
 import { serveStatic } from 'frog/serve-static'
 import {
   encodeFunctionData,
   isAddress,
   parseEther,
-  zeroAddress,
   zeroHash,
 } from 'viem'
 
