@@ -243,9 +243,9 @@ function Home() {
             } else {
               setAttesting(true);
               try {
-                const schemaEncoder = new SchemaEncoder("bool isFriend");
+                const schemaEncoder = new SchemaEncoder("bool IsPartner");
                 const encoded = schemaEncoder.encodeData([
-                  { name: "isFriend", type: "bool", value: true },
+                  { name: "IsPartner", type: "bool", value: true },
                 ]);
 
                 invariant(signer, "signer must be defined");
@@ -263,7 +263,7 @@ function Home() {
                     revocable: true,
                     expirationTime: BigInt(0),
                   },
-                  schema: CUSTOM_SCHEMAS.IS_A_FRIEND_SCHEMA,
+                  schema: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
                 });
 
                 const uid = await tx.wait();

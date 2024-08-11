@@ -15,8 +15,8 @@ import axios from "axios";
 export const alchemyApiKey = process.env.REACT_APP_ALCHEMY_API_KEY;
 
 export const CUSTOM_SCHEMAS = {
-  IS_A_FRIEND_SCHEMA:
-    "0x27d06e3659317e9a4f8154d1e849eb53d43d91fb4f219884d1684f86d797804a",
+  IS_A_PARTNER_SCHEMA:
+    "0x04a5b2306c5fd46772bdfd8600d9ef296d22d95e0bd1b6c91c5939dac9e4d650",
   CONFIRM_SCHEMA:
     "0xb96446c85ce538c1641a967f23ea11bbb4a390ef745fc5a9905689dbd48bac86",
 };
@@ -129,7 +129,7 @@ export async function getAttestationsForAddress(address: string) {
       variables: {
         where: {
           schemaId: {
-            equals: CUSTOM_SCHEMAS.IS_A_FRIEND_SCHEMA,
+            equals: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
           },
           OR: [
             {
