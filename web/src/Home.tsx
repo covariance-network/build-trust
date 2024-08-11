@@ -244,10 +244,12 @@ function Home() {
               setAttesting(true);
               try {
 
-                const schemaEncoder = new SchemaEncoder("bool IsPartner,string CompanyName");
-                const encoded = schemaEncoder.encodeData([
+                const schemaEncoder = new SchemaEncoder("bool IsPartner,string MyCompanyName,string PartnerCompanyName,string Description");
+                const encodedData = schemaEncoder.encodeData([
                   { name: "IsPartner", value: true, type: "bool" },
-                  { name: "CompanyName", value: MyCompanyName, type: "string" }
+                  { name: "MyCompanyName", value: MyCompanyName, type: "string" },
+                  { name: "PartnerCompanyName", value: PartnerCompanyName, type: "string" },
+                  { name: "Description", value: Description, type: "string" }
                 ]);
 
                 invariant(signer, "signer must be defined");
@@ -260,7 +262,7 @@ function Home() {
                 const tx = await eas.attest({
                   data: {
                     recipient: recipient,
-                    data: encoded,
+                    data: encodedData,
                     refUID: ethers.ZeroHash,
                     revocable: true,
                     expirationTime: BigInt(0),
