@@ -187,7 +187,7 @@ function Home() {
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
-            placeholder={"Partner Name"}
+            placeholder={"Partner ENS/Address"}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
