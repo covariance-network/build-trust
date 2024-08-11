@@ -298,6 +298,7 @@ function Home() {
           <>
             <SubText to={"/qr"}>Show my QR code</SubText>
             <SubText to={"/connections"}>Connections</SubText>
+            <SubText to={"/build-trust#upvote-attestations"}>Show my QR code</SubText>
           </>
         )}
       </WhiteBox>
