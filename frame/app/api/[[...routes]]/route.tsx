@@ -316,7 +316,7 @@ app.transaction('/attest', async (c) => {
     functionName: 'attest',
     args: [
       {
-        schema: CUSTOM_SCHEMAS.MET_IRL_SCHEMA,
+        schema: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
         data: {
           recipient: previousState.values.address,
           expirationTime: BigInt(0),

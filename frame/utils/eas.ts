@@ -70,7 +70,7 @@ export async function getAttestationsForAddress(address: string) {
     variables: {
       where: {
         schemaId: {
-          equals: CUSTOM_SCHEMAS.MET_IRL_SCHEMA,
+          equals: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
         },
         OR: [
           {
