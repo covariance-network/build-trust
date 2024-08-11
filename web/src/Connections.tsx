@@ -105,7 +105,7 @@ function Home() {
   return (
     <Container>
       <GradientBar />
-      <NewConnection>Who you met IRL.</NewConnection>
+      <NewConnection>People you have built trust with:</NewConnection>
       <AttestationHolder>
         <WhiteBox>
           {loading && <div>Loading...</div>}
