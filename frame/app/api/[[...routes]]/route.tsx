@@ -331,7 +331,7 @@ app.transaction('/attest', async (c) => {
   })
 
   return c.send({
-    chainId: `eip155:${activeChainConfig!.chainId}`,
+    chainId: "eip155:84532",
     to: activeChainConfig!.contractAddress as `0x${string}`,
     data: transactiondata,
     value: parseEther('0'),
