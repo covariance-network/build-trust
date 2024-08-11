@@ -174,7 +174,6 @@ app.frame('/data', async (c) => {
       }
 
       case 'company0': {
-        // state.values.company0 = inputText
         nextStep = 'company1'
         placeholder = 'The company of your partner'
         description =
@@ -182,7 +181,6 @@ app.frame('/data', async (c) => {
         break
       }
       case 'company1': {
-        // state.values.company0 = inputText
         description = 'Complete your part of the attestation'
 
         // nextStep = 'finished'
@@ -292,7 +290,7 @@ app.frame('/finish', async (c) => {
     ),
     intents: [
       <Button.Link
-        href={`https://${activeChainConfig.subdomain}easscan.org/attestation/view/${attestUid}`}
+        href={`https://${activeChainConfig!.subdomain}easscan.org/attestation/view/${attestUid}`}
       >
         View
       </Button.Link>,
@@ -306,10 +304,13 @@ app.transaction('/attest', async (c) => {
 
   console.log('/attest', previousState)
 
-  const schemaEncoder = new SchemaEncoder('bool metIRL')
-  const encoded = schemaEncoder.encodeData([
-    { name: 'metIRL', type: 'bool', value: true },
-  ])
+  const schemaEncoder = new SchemaEncoder("bool IsPartner,string MyCompanyName,string PartnerCompanyName,string Description");
+  const encodedData = schemaEncoder.encodeData([
+    { name: "IsPartner", value: true, type: "bool" },
+    { name: "MyCompanyName", value: previousState.values.company0, type: "string" },
+    { name: "PartnerCompanyName", value: previousState.values.company1, type: "string" },
+    { name: "Description", value: "", type: "string" }
+  ]);
 
   const transactiondata = encodeFunctionData({
     abi: easAbi,
@@ -322,7 +323,7 @@ app.transaction('/attest', async (c) => {
           expirationTime: BigInt(0),
           revocable: true,
           refUID: zeroHash,
-          data: encoded,
+          data: encodedData,
           value: BigInt(0),
         },
       },
@@ -330,8 +331,8 @@ app.transaction('/attest', async (c) => {
   })
 
   return c.send({
-    chainId: `eip155:${activeChainConfig.chainId}`,
-    to: activeChainConfig.contractAddress as `0x${string}`,
+    chainId: `eip155:${activeChainConfig!.chainId}`,
+    to: activeChainConfig!.contractAddress as `0x${string}`,
     data: transactiondata,
     value: parseEther('0'),
   })
