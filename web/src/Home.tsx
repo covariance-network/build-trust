@@ -142,7 +142,8 @@ function Home() {
   const modal = useModal();
   const [address, setAddress] = useState("");
   const [PartnerName, setPartnerName] = useState("");
-  const [CompanyName, setCompanyName] = useState("");
+  const [MyCompanyName, setMyCompanyName] = useState("");
+  const [PartnerCompanyName, setPartnerCompanyName] = useState("");
   const [Description, setDescription] = useState("");
   const signer = useSigner();
   const [attesting, setAttesting] = useState(false);
@@ -187,7 +188,7 @@ function Home() {
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
-            placeholder={"Partner ENS/Address"}
+            placeholder={"Your partner ENS/Address"}
             value={address}
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -201,9 +202,23 @@ function Home() {
             autoCorrect={"off"}
             autoComplete={"off"}
             autoCapitalize={"off"}
-            placeholder={"Partner Company"}
-            value={CompanyName}
-            onChange={(e) => setCompanyName(e.target.value)}
+            placeholder={"My Company"}
+            value={MyCompanyName}
+            onChange={(e) => setMyCompanyName(e.target.value)}
+          />
+          {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
+        </InputContainer>
+        <Title>
+          And
+        </Title>
+        <InputContainer>
+          <InputBlock2
+            autoCorrect={"off"}
+            autoComplete={"off"}
+            autoCapitalize={"off"}
+            placeholder={"My Partner Company"}
+            value={PartnerCompanyName}
+            onChange={(e) => setPartnerCompanyName(e.target.value)}
           />
           {ensResolvedAddress && <EnsLogo src={"/ens-logo.png"} />}
         </InputContainer>
@@ -228,9 +243,13 @@ function Home() {
             } else {
               setAttesting(true);
               try {
-                const schemaEncoder = new SchemaEncoder("bool isFriend");
-                const encoded = schemaEncoder.encodeData([
-                  { name: "isFriend", type: "bool", value: true },
+
+                const schemaEncoder = new SchemaEncoder("bool IsPartner,string MyCompanyName,string PartnerCompanyName,string Description");
+                const encodedData = schemaEncoder.encodeData([
+                  { name: "IsPartner", value: true, type: "bool" },
+                  { name: "MyCompanyName", value: MyCompanyName, type: "string" },
+                  { name: "PartnerCompanyName", value: PartnerCompanyName, type: "string" },
+                  { name: "Description", value: Description, type: "string" }
                 ]);
 
                 invariant(signer, "signer must be defined");
@@ -243,12 +262,12 @@ function Home() {
                 const tx = await eas.attest({
                   data: {
                     recipient: recipient,
-                    data: encoded,
+                    data: encodedData,
                     refUID: ethers.ZeroHash,
                     revocable: true,
                     expirationTime: BigInt(0),
                   },
-                  schema: CUSTOM_SCHEMAS.IS_A_FRIEND_SCHEMA,
+                  schema: CUSTOM_SCHEMAS.IS_A_PARTNER_SCHEMA,
                 });
 
                 const uid = await tx.wait();

@@ -82,7 +82,7 @@ function Home() {
         {address && (
           <QRCodeSVG
             style={{}}
-            value={`https://metirl.org/?address=${ens ? ens : address}`}
+            value={`https://build-trust.covariance.network/?address=${ens ? ens : address}`}
             includeMargin={true}
             size={300}
           />
