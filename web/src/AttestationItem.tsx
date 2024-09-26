@@ -159,6 +159,8 @@ export function AttestationItem({ data }: Props) {
                   schema: CUSTOM_SCHEMAS.CONFIRM_SCHEMA,
                 });
 
+                const uid = await tx.wait();
+
                 setConfirming(false);
                 window.location.reload();
               } catch (e) {}
