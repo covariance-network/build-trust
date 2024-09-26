@@ -30,6 +30,10 @@ type ChainConfig = {
 
 const allChains: ChainConfig[] = [
   {
+    chainName: "celo",
+    chain: chains.celo,
+  },
+  {
     chainName: "mainnet",
     chain: chains.mainnet,
   },
