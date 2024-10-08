@@ -33,6 +33,17 @@ invariant(CHAINID, "No chain ID env found");
 
 export const EAS_CHAIN_CONFIGS: EASChainConfig[] = [
   {
+    chainId: 42220,
+    chainName: "celo",
+    subdomain: "celo.",
+    version: "1.3.0",
+    contractAddress: "0x72E1d8ccf5299fb36fEfD8CC4394B8ef7e98Af92",
+    schemaRegistryAddress: "0x5ece93bE4BDCF293Ed61FA78698B594F2135AF34",
+    etherscanURL: "https://celoscan.io/",
+    contractStartBlock: 0,
+    rpcProvider: `https://forno.celo.org`,
+  },
+  {
     chainId: 84532,
     chainName: "base-sepolia",
     subdomain: "base-sepolia.",
